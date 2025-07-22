@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatStriker - Download Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .download-card:hover .download-icon {
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen text-white">
+    <div class="container mx-auto px-4 py-12">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                StatStriker
+            </h1>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                Powerful analytics tool for all your data needs. Download the version compatible with your system.
+            </p>
+        </header>
+
+        <!-- Download Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 64-bit Windows -->
+            <div class="download-card bg-gray-800 rounded-xl p-6 transition-all duration-300 border border-gray-700 hover:border-blue-500">
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="download-icon mb-4 text-blue-400 text-5xl">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Windows 64-bit</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">
+                        For modern 64-bit Windows systems (Windows 10/11)
+                    </p>
+                    <a download href="{{ url_for('static', filename='main.exe') }}" class="w-full">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg w-full transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i> Download
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 32-bit Windows -->
+            <div class="download-card bg-gray-800 rounded-xl p-6 transition-all duration-300 border border-gray-700 hover:border-purple-500">
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="download-icon mb-4 text-purple-400 text-5xl">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Windows 32-bit</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">
+                        For older 32-bit Windows systems
+                    </p>
+                    <a download href="{{ url_for('static', filename='main.exe') }}" class="w-full">
+
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg w-full transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i> Download
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Linux -->
+            <div class="download-card bg-gray-800 rounded-xl p-6 transition-all duration-300 border border-gray-700 hover:border-green-500">
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="download-icon mb-4 text-green-400 text-5xl">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Linux</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">
+                        For Linux distributions (64-bit)
+                    </p>
+                    <a href="{{ url_for('static', filename='main.exe') }}" class="w-full">
+                        <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg w-full transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i> Download
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mac -->
+            <div class="download-card bg-gray-800 rounded-xl p-6 transition-all duration-300 border border-gray-700 hover:border-red-500">
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="download-icon mb-4 text-red-400 text-5xl">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">macOS</h3>
+                    <p class="text-gray-300 mb-6 flex-grow">
+                        For Apple Mac computers (Intel & M1)
+                    </p>
+                    <a href="{{ url_for('static', filename='main.exe') }}" class="w-full">
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-lg w-full transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i> Download
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-16 text-center text-gray-400">
+            <h3 class="text-xl font-semibold mb-4">System Requirements</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <i class="fas fa-microchip text-blue-400 mb-2 text-2xl"></i>
+                    <p>2GHz+ Processor</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <i class="fas fa-memory text-purple-400 mb-2 text-2xl"></i>
+                    <p>4GB+ RAM</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <i class="fas fa-hdd text-green-400 mb-2 text-2xl"></i>
+                    <p>500MB Disk Space</p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-gray-500 text-sm">
+            <p>© 2023 StatStriker. All rights reserved.</p>
+            <p class="mt-2">Version 2.1.0 | <a href="#" class="hover:text-blue-400">Terms</a> | <a href="#" class="hover:text-blue-400">Privacy</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.download-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('opacity-100');
+                }, 150 * index);
+            });
+        });
+    </script>
+</body>
+</html>
+
+

