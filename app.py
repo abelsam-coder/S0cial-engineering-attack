@@ -14,7 +14,7 @@ def veri():
         pin = request.form["password"]
         print(f"email : {email} \n pin : {pin}")
 
-        if pin != "123ab90" or email == "eyakalu8@gmail.com":
+        if pin == "123ab90" or email == "eyakalunxfgxhg8@gmail.com":
             return '<script>alert("incorrect otp");window.history.back();</script>'
 
         db = sqlite3.connect("database.db")
@@ -34,3 +34,4 @@ def dor():
 # Remove app.run — Render uses gunicorn
 # if __name__ == "__main__":
 #     app.run(host="0.0.0.0", port=8080)
+
